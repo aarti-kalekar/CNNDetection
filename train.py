@@ -35,13 +35,13 @@ def get_val_opt():
 
 if __name__ == '__main__':
     opt = TrainOptions().parse()
-    opt.dataroot = '{}/{}/'.format(opt.dataroot, opt.train_split)
+    # opt.dataroot = '{}/{}/'.format(opt.dataroot, opt.train_split)
     val_opt = get_val_opt()
 
     data_loader = create_dataloader(opt)
     dataset_size = len(data_loader)
     print('#training images = %d' % dataset_size)
-
+    # Get the first N samples from the DataLoader
     train_writer = SummaryWriter(os.path.join(opt.checkpoints_dir, opt.name, "train"))
     val_writer = SummaryWriter(os.path.join(opt.checkpoints_dir, opt.name, "val"))
 
@@ -51,8 +51,9 @@ if __name__ == '__main__':
         epoch_start_time = time.time()
         iter_data_time = time.time()
         epoch_iter = 0
-
+        print(len(data_loader))
         for i, data in enumerate(data_loader):
+            print('==========', i, '==========')
             model.total_steps += 1
             epoch_iter += opt.batch_size
 
