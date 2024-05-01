@@ -8,9 +8,12 @@ from .datasets import dataset_folder
 def get_dataset(opt):
     dset_lst = []
     for cls in opt.classes:
-        root = opt.dataroot + '/' + cls + '/' + 'imagenet_' + cls.lower()
+        root = opt.dataroot + '/' + cls + '/' + 'imagenet_' + \
+            cls.lower() + ('/train' if opt.isTrain else '/val')
+        print(root)
         dset = dataset_folder(opt, root)
         dset_lst.append(dset)
+        print(len(dset))
     return torch.utils.data.ConcatDataset(dset_lst)
 
 

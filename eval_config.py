@@ -6,14 +6,14 @@ results_dir = './results/'
 mkdir(results_dir)
 
 # root to the testsets
-dataroot = './dataset/test/'
+# dataroot = './dataset/test/'
+dataroot = '../../../../scratch/kkaterga/GenImage'
 
 # list of synthesis algorithms
-vals = ['progan', 'stylegan', 'biggan', 'cyclegan', 'stargan', 'gaugan',
-        'crn', 'imle', 'seeingdark', 'san', 'deepfake', 'stylegan2', 'whichfaceisreal']
+vals = ['DALLE3', 'Firefly', 'Gemini']
 
 # indicates if corresponding testset has multiple classes
-multiclass = [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+multiclass = [0, 0, 0]
 
 # model
 model_path = 'weights/blur_jpg_prob0.5.pth'
