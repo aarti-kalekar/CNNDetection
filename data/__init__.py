@@ -40,6 +40,6 @@ def create_dataloader(opt):
                                               batch_size=opt.batch_size,
                                               shuffle=shuffle,
                                               sampler=sampler,
-                                              # num_workers=int(opt.num_threads))
-                                              num_workers=0)
+                                              num_workers=int(opt.num_threads))
+                                            #   num_workers=0)
     return data_loader
